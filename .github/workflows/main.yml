@@ -1,0 +1,27 @@
+name: Laravel Sync
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  laravel-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get latest code
+        uses: actions/checkout@v2
+
+      - name: Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.0
+        with:
+          server: ftp.greenlifeit.com
+          username: ${{ secrets.ftp_username }}
+          password: ${{ secrets.ftp_password }}
+          exclude: |
+            /database/dsfdsafadsfasdfasd.sqlite
+            /storage/logs/laravel.log
+            .env
+            **/.git*
+            **/.git*/**
