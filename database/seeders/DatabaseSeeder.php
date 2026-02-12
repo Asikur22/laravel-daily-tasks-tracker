@@ -17,31 +17,24 @@ class DatabaseSeeder extends Seeder
     {
         // User
         $user = \App\Models\User::factory()->create([
-            'name' => 'Demo User',
-            'email' => 'demo@example.com',
-            'password' => bcrypt('password'),
+            'name' => 'Asiqur Rahman',
+            'email' => 'asikur22@gmail.com',
+            'password' => bcrypt('=hvGCx6/}_DaXE8TVrbr'),
         ]);
 
         // Categories
+        $personal = \App\Models\Category::create(['name' => 'Personal', 'color' => '#1DDDD9', 'user_id' => $user->id]);
         $work = \App\Models\Category::create(['name' => 'Work', 'color' => '#3b82f6', 'user_id' => $user->id]);
-        $personal = \App\Models\Category::create(['name' => 'Personal', 'color' => '#10b981', 'user_id' => $user->id]);
         $health = \App\Models\Category::create(['name' => 'Health', 'color' => '#ef4444', 'user_id' => $user->id]);
         $learning = \App\Models\Category::create(['name' => 'Learning', 'color' => '#f59e0b', 'user_id' => $user->id]);
+        $religious = \App\Models\Category::create(['name' => 'Religious', 'color' => '#10b981', 'user_id' => $user->id]);
 
         // Tasks
         \App\Models\Task::create([
-            'title' => 'Morning Standup', 
-            'category_id' => $work->id, 
-            'notification_time' => '09:00', 
-            'recurring_days' => ['mon', 'tue', 'wed', 'thu', 'fri'], 
-            'user_id' => $user->id
-        ]);
-
-        \App\Models\Task::create([
-            'title' => 'Gym Workout', 
+            'title' => 'Walk 30 Minutes', 
             'category_id' => $health->id, 
             'notification_time' => '18:00', 
-            'recurring_days' => ['mon', 'wed', 'fri'], 
+            'recurring_days' => null, 
             'user_id' => $user->id
         ]);
 
@@ -50,14 +43,6 @@ class DatabaseSeeder extends Seeder
             'category_id' => $learning->id, 
             'notification_time' => '21:00', 
             'recurring_days' => null, // Every day
-            'user_id' => $user->id
-        ]);
-        
-        \App\Models\Task::create([
-            'title' => 'Grocery Shopping', 
-            'category_id' => $personal->id, 
-            'notification_time' => '10:00', 
-            'recurring_days' => ['sat'], 
             'user_id' => $user->id
         ]);
     }

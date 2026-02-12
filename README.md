@@ -43,17 +43,13 @@ A modern, premium-quality Daily Task Tracker web application built with **Larave
    php artisan key:generate
    ```
 
-   Ensure your `.env` is configured for **SQLite**:
+   Ensure your `.env` is configured for **SQLite**, pointing to the custom database file:
    ```ini
    DB_CONNECTION=sqlite
-   # DB_HOST=127.0.0.1
-   # DB_PORT=3306
-   # DB_DATABASE=laravel
-   # DB_USERNAME=root
-   # DB_PASSWORD=
+   DB_DATABASE=/absolute/path/to/database/database.sqlite
    ```
    
-   Create the database file:
+   Create the database file if not exists (or rename existing):
    ```bash
    touch database/database.sqlite
    ```

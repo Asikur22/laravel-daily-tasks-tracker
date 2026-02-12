@@ -1,4 +1,4 @@
-name: Laravel Sync
+name: Laravel Daily Tasks Tracker Sync
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
           exclude: |
-            /database/dsfdsafadsfasdfasd.sqlite
+            /database/dsfdsafadsweffdsafsdfasdfasd.sqlite
             /storage/logs/laravel.log
             .env
             **/.git*
