@@ -19,6 +19,7 @@ jobs:
           server: ftp.greenlifeit.com
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
+          server-dir: /daily-tasks-tracker/ # Update this to your target directory (e.g., /daily-tasks-tracker/)
           exclude: |
             /database/dsfdsafadsweffdsafsdfasdfasd.sqlite
             /storage/logs/laravel.log
